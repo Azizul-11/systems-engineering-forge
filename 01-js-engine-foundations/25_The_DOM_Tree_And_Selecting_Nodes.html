@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- <h1 id="page-title">Welcome to Dumroo</h1>
+    <button class="btn">Click Me</button>
+    <button class="btn">Click Me</button>
+    <button class="btn">Click Me</button> -->
+
+    <!-- <li>
+        
+        <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+        </ul>
+    </li> -->
+
+    <div id="container"></div>
+
+
+</body>
+
+
+    <script >
+        // Example
+//         // 1. Selecting an element using modern CSS syntax
+// const titleNode = document.querySelector("#page-title");
+
+// // 2. Mutating its properties (Just like changing an object key!)
+// titleNode.textContent = "Welcome to Dumroo";
+// titleNode.style.color = "blue";
+
+// // 3. Selecting multiple items
+// const allButtons = document.querySelectorAll(".btn");
+// console.log(allButtons.length); // Prints how many buttons exist
+
+
+// Ex 1
+
+// const listItems = document.querySelectorAll("li");
+
+// // We try to use a Higher Order Function on a NodeList:
+// const upperItems = listItems.map(item => item.textContent.toUpperCase());
+// What happens here? Does it work, or throw an error?
+// ==> It will throw an error. the reason is Nodelits  is not an array, so it does not have the map method. 
+
+// Ex 2
+
+// const box = document.querySelector("#container");
+// box.innerHTML = "<script>alert('Hacked!')<\/script>";
+
+
+
+    // MINi Project: Double the Prices
+
+    function doublePrices(priceNodeList) {
+    // 1. Use the Spread Operator [...] to explode the NodeList into a REAL Array
+    const realArray = [...priceNodeList];
+
+    // 2. Now we can use .map()!
+    const doubledValues = realArray.map(node => {
+        // Coerce the text into a number, then multiply
+        const rawNumber = Number(node.textContent);
+        return rawNumber * 2;
+    });
+
+    return doubledValues;
+}
+
+// How it would be used in the real world:
+const nodes = document.querySelectorAll(".price");
+console.log(doublePrices(nodes));
+
+
+    </script>
+</html>
